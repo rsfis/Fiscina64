@@ -2374,6 +2374,7 @@ struct Physics {
     }
     static Shape CreateMeshShape(const char* path, Vector3 position, Vector3 rotation, Vector3 scale, float mass) {
         btGImpactMeshShape* newshape = new btGImpactMeshShape(LoadMeshFromFile(path, scale));
+        newshape->updateBound();
         btTransform start;
         start.setIdentity();
         start.setRotation(btQuaternion(rotation.x, rotation.y, rotation.z));
